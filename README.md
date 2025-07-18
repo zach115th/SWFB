@@ -62,3 +62,41 @@
 | `MaxIpsPerUsername`      | `2`      | Block all IPs if a username is hit from this many different IPs |
 
 ---
+
+## JSON State
+The script writes its state to blocked_ips.json in the working directory, containing:
+- Blocked IPs, blocked time, and destination port (if available)
+- Host public/private IPs and last update time
+
+---
+
+## How To Tune SWFB
+- Adjust thresholds for sensitivity. Lower numbers block faster, higher numbers are more tolerant.
+- Whitelist trusted IPs to avoid locking yourself out.
+- Check blocked_ips.json for history and troubleshooting.
+- Review Windows Event Viewer and Firewall logs for context if needed.
+
+---
+
+## FAQ
+**Q: Will this lock me out if I use RDP from a dynamic public IP?**
+- A: It’s possible. Add your admin IP to the Whitelist parameter.
+
+**Q: Does this catch slow/stealthy attacks?**
+- A: SWFB works best for rapid attacks but can detect password/user spray attempts as well.
+
+**Q: Is it safe to run on domain controllers?**
+- A: SWFB reads only failed logon events and blocks at the host firewall, but always test carefully in sensitive environments.
+
+---
+
+## Limitations
+- Only blocks based on Windows Security events (Event 4625).
+- Does not parse custom log sources.
+- Not a replacement for full-featured SIEM or IDS/IPS.
+
+---
+
+**Pull requests, suggestions, and improvements are welcome!**
+
+---
