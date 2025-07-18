@@ -1,6 +1,6 @@
 # Simple Windows Firewall Bouncer (SWFB)
 
-**Simple Windows Firewall Bouncer (SWFB)** is a PowerShell script for automated brute-force and password spray protection using built-in Windows Firewall. It watches failed logon attempts (Event ID 4625) and dynamically blocks suspicious public IPs—no third-party tools required.
+**Simple Windows Firewall Bouncer (SWFB)** is a self-contained PowerShell script that automates blocking of brute-force and password spray attacks using Windows Firewall. It scans Windows Security Event Logs for failed logon attempts and blocks suspicious IPs dynamically based on configurable thresholds and patterns, helping protect Windows systems with no third-party dependencies.
 
 ---
 
@@ -16,14 +16,15 @@
 
 ## How It Works
 
-- Monitors the Windows Security event log for failed login attempts (`Event ID 4625`).
-- Tracks source IPs, usernames, and destination ports.
-- Applies firewall blocks when an IP:
-    - Hits too many failed logons in the time window.
-    - Attempts too many unique usernames (password spray).
-    - A single username is targeted from too many IPs (user spray).
-- Automatically expires and removes old firewall blocks.
-- Persists blocked IPs and host info in `blocked_ips.json`.
+- Automated Blocking: Detects and blocks IPs with repeated failed logons, password sprays, or distributed username targeting.
+
+- Adaptive Detection: Customizable thresholds for failed attempts, username spray, and user spray detection.
+
+- Self-Healing: Unblocks IPs automatically after a configurable expiration period.
+
+- Stateful: Persists blocked IPs and host info across reboots/runs via a simple JSON file.
+
+- No External Dependencies: Uses only built-in Windows PowerShell, Windows Firewall, and standard logs.
 
 ---
 
