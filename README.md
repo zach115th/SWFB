@@ -6,25 +6,23 @@
 
 ## Features
 
-- **Automatic Blocking:** Stops brute-force, password spray, and distributed username attacks.
-- **Configurable:** Tune thresholds for failed logons, username spray, and more.
-- **Auto-Unblocking:** Removes blocks after a specified duration.
-- **Stateful:** Remembers blocked IPs and host info in a JSON file.
-- **Zero Dependencies:** Only requires Windows PowerShell and Windows Firewall.
+- **Automated Blocking:** Detects and blocks IPs with repeated failed logons, password sprays, or distributed username targeting.
+- **Adaptive Detection:** Customizable thresholds for failed attempts, username spray, and user spray detection.
+- **Self-Healing:** Unblocks IPs automatically after a configurable expiration period.
+- **Stateful:** Persists blocked IPs and host info across reboots/runs via a simple JSON file.
+- **No External Dependencies:** Uses only built-in Windows PowerShell, Windows Firewall, and standard logs.
 
 ---
 
 ## How It Works
 
-- Automated Blocking: Detects and blocks IPs with repeated failed logons, password sprays, or distributed username targeting.
-
-- Adaptive Detection: Customizable thresholds for failed attempts, username spray, and user spray detection.
-
-- Self-Healing: Unblocks IPs automatically after a configurable expiration period.
-
-- Stateful: Persists blocked IPs and host info across reboots/runs via a simple JSON file.
-
-- No External Dependencies: Uses only built-in Windows PowerShell, Windows Firewall, and standard logs.
+- **Monitors** Windows Security event log for Event ID 4625 (failed logons).
+- **Correlates** source IP, destination port, and username for each failed attempt.
+- **Blocks** an IP using Windows Firewall when:
+  - It exceeds a set number of failed logons in a time window.
+  - It tries to log in as more than a set number of usernames (password spray).
+  - A single username is targeted from too many source IPs (user spray).
+- **Manages** firewall rules and keeps a rolling list of blocked/unblocked IPs.
 
 ---
 
