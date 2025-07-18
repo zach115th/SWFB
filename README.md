@@ -20,8 +20,8 @@
 - **Correlates** source IP, destination port, and username for each failed attempt.
 - **Blocks** an IP using Windows Firewall when:
   - It exceeds a set number of failed logons in a time window.
-  - It tries to log in as more than a set number of usernames (password spray).
-  - A single username is targeted from too many source IPs (user spray).
+  - It tries to log in as more than a set number of usernames.
+  - A single username is targeted from too many source IPs.
 - **Manages** firewall rules and keeps a rolling list of blocked/unblocked IPs.
 
 ---
