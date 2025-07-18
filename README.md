@@ -28,9 +28,9 @@
 
 ## Requirements
 
-- Windows 10, 11, or Server with PowerShell 5.x+
-- **Run as Administrator** (required for firewall and event log access)
-- Windows Firewall enabled
+- Windows 10/11 or Server (with PowerShell 5.x+).
+- Run as Administrator (required to manage firewall rules and read Security log).
+- Windows Firewall enabled.
 
 ---
 
@@ -47,3 +47,8 @@
 ```powershell
 .\swfb.ps1
 
+---
+
+## Paramaters
+
+---
