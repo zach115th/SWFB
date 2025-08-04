@@ -23,11 +23,11 @@ function Apply-ExternalBlocklists {
             }
             foreach ($ip in $ips) { $allBlocklistIps.Add($ip) | Out-Null }
         } catch {
-            Write-Warning "Failed to download or parse $url: $_"
+            Write-Warning "Failed to download or parse $url: $($_.Exception.Message)"
         }
     }
     if ($allBlocklistIps.Count -eq 0) {
-        Write-Host "`nNo IPs found in blocklists."
+        Write-Host "No IPs found in blocklists."
         return
     }
     $ipString = ($allBlocklistIps | Sort-Object) -join ","
