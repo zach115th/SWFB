@@ -6,7 +6,7 @@ param(
     [int]$ScanIntervalMinutes = 1,                # How often the main loop should scan logs
     [int]$MaxUsernamesPerIp = 2,                  # Block IP if it tries more than this many usernames in window
     [int]$MaxIpsPerUsername = 2,                  # Block all IPs if a single username is targeted from this many IPs
-    [string[]]$BlocklistUrls = @("https://github.com/zach115th/BlockLists/blob/main/emerging-threats/2025/toolshell/toolshell_ips.txt")                # URLs to txt files containing IPs to block
+    [string[]]$BlocklistUrls = @("https://raw.githubusercontent.com/zach115th/BlockLists/refs/heads/main/emerging-threats/2025/toolshell/toolshell_ips.txt")                # URLs to txt files containing IPs to block
 )
 
 # --- NEW: Download and block IPs from external blocklists ---
