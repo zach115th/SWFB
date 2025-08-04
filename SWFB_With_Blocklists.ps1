@@ -27,7 +27,7 @@ function Apply-ExternalBlocklists {
         }
     }
     if ($allBlocklistIps.Count -eq 0) {
-        Write-Host "No IPs found in blocklists."
+        Write-Host "`nNo IPs found in blocklists."
         return
     }
     $ipString = ($allBlocklistIps | Sort-Object) -join ","
@@ -235,7 +235,7 @@ function Block-IP {
 }
 
 # Main Loop
-Write-Host "Starting Simple Windows Firewall Bouncer..."
+Write-Host "`nStarting Simple Windows Firewall Bouncer..."
 while ($true) {
     # Remove old blocks based on expiration
     Remove-OldBlocks
@@ -273,6 +273,6 @@ while ($true) {
     # Block IPs for user spray (single user, multiple source IPs)
     foreach ($user in $userIps.Keys)  { if ($userIps[$user].Count -ge $MaxIpsPerUsername) { foreach ($ip in $userIps[$user]) { Block-IP $ip } } }
 
-    Write-Host "Cycle complete; sleeping $ScanIntervalMinutes minute(s)."
+    Write-Host "`nCycle complete; sleeping $ScanIntervalMinutes minute(s)."
     Start-Sleep -Seconds ($ScanIntervalMinutes * 60)
 }
