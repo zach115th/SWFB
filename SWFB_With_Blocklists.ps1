@@ -4,8 +4,8 @@ param(
     [int]$BlockDurationDays = 30,                 # How long to keep an IP blocked
     [string[]]$Whitelist = @("8.8.8.8","1.1.1.1"),# List of IPs that are never blocked
     [int]$ScanIntervalMinutes = 1,                # How often the main loop should scan logs
-    [int]$MaxUsernamesPerIp = 2,                  # Block IP if it tries more than this many usernames in window
-    [int]$MaxIpsPerUsername = 2,                  # Block all IPs if a single username is targeted from this many IPs
+    [int]$MaxUsernamesPerIp = 3,                  # Block IP if it tries more than this many usernames in window
+    [int]$MaxIpsPerUsername = 3,                  # Block all IPs if a single username is targeted from this many IPs
     [string[]]$BlocklistUrls = @(
           "https://raw.githubusercontent.com/zach115th/BlockLists/refs/heads/main/emerging-threats/2025/toolshell/toolshell_ips.txt",
           "https://feeds.dshield.org/feeds/top10.txt"
