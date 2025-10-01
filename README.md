@@ -58,7 +58,7 @@
 | `BlockDurationDays`      | `30`     | How long to keep an IP blocked                                  |
 | `Whitelist`              | see code | Array of IPs to never block (e.g. safe admin stations)          |
 | `ScanIntervalMinutes`    | `1`      | How often (in minutes) to scan and take action                  |
-| `MaxUsernamesPerIp`      | `2`      | Block IP if it tries this many usernames in the window          |
+| `MaxUsernamesPerIp`      | `3`      | Block IP if it tries this many usernames in the window          |
 | `MaxIpsPerUsername`      | `2`      | Block all IPs if a username is hit from this many different IPs |
 
 ---
