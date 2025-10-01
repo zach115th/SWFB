@@ -8,8 +8,9 @@ param(
     [int]$MaxIpsPerUsername = 3,                  # Block all IPs if a single username is targeted from this many IPs
     [string[]]$BlocklistUrls = @(
           "https://raw.githubusercontent.com/zach115th/BlockLists/refs/heads/main/emerging-threats/2025/toolshell/toolshell_ips.txt",
-          "https://feeds.dshield.org/feeds/top10.txt"
-       )                # URLs to txt files containing IPs to block
+          "https://feeds.dshield.org/feeds/top10.txt",
+          "https://raw.githubusercontent.com/zach115th/BlockLists/refs/heads/main/CommandAndControl/C2_IPs.txt"
+       )                                          # URLs to txt files containing IPs to block
 )
 
 # --- NEW: Download and block IPs from external blocklists ---
