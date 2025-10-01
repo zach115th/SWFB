@@ -59,7 +59,7 @@
 | `Whitelist`              | see code | Array of IPs to never block (e.g. safe admin stations)          |
 | `ScanIntervalMinutes`    | `1`      | How often (in minutes) to scan and take action                  |
 | `MaxUsernamesPerIp`      | `3`      | Block IP if it tries this many usernames in the window          |
-| `MaxIpsPerUsername`      | `2`      | Block all IPs if a username is hit from this many different IPs |
+| `MaxIpsPerUsername`      | `3`      | Block all IPs if a username is hit from this many different IPs |
 
 ---
 
